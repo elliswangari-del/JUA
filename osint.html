@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="#0B0B0D" name="theme-color"/><meta content="Jua helps you recognise online scams, check suspicious messages, learn safer habits and find practical next steps." name="description"/><link href="data:," rel="icon"/><link href="style.css" rel="stylesheet"/><script defer="" src="shared-shell.js"></script><title>Jua | OSINT Tools</title><script defer="" src="osint.js"></script></head><body><main class="page-content"><section aria-labelledby="osint-title" class="tool-section tool-section--dark osint-section" id="osint">
+<div class="wrap">
+<div class="tool-heading">
+<p class="eyebrow">Open-source intelligence · OSINT</p>
+<h2 class="section-title" id="osint-title">OSINT Investigation Centre.</h2>
+<p class="section-copy">Check public signals using established services. Every result has limits; a clean finding is not proof that a site or account is safe.</p>
+</div>
+<aside aria-label="Privacy notice" class="osint-privacy">
+<span aria-hidden="true" class="osint-privacy-icon">!</span>
+<p><strong>Pause before sharing.</strong> External services receive information you submit. urlscan scans may be publicly visible depending on the visibility setting you select there. Jua does not send a URL or email to reputation services automatically. Never submit private, confidential, or someone else’s personal information without permission.</p>
+</aside>
+<div class="osint-grid">
+<article class="osint-card osint-card--wide">
+<div class="osint-card-heading"><span aria-hidden="true" class="osint-icon">↗</span><div><p class="osint-kicker">Link &amp; website reputation</p><h3>Check a suspicious URL</h3></div><span class="osint-status osint-status--external">External checks</span></div>
+<p class="osint-description">Jua validates the format only. Choose a service below to continue on its site; the provider performs the check and applies its own data handling rules.</p>
+<form class="osint-form" id="osint-url-form" novalidate="">
+<label class="field-label" for="osint-url">Website URL</label>
+<div class="osint-input-row"><input aria-describedby="osint-url-hint" autocomplete="url" id="osint-url" inputmode="url" placeholder="https://example.com" required="" type="url"/><button class="button-primary" type="submit">Prepare check</button></div>
+<p class="osint-hint" id="osint-url-hint">Use a public website address. Private network addresses, localhost, and local domains are not accepted.</p>
+<label class="osint-consent"><input id="osint-url-consent" required="" type="checkbox"/><span>I understand that the provider I choose will receive the URL. urlscan submissions can be visible to others; I will review its visibility options before submitting.</span></label>
+<p aria-live="polite" class="osint-message" id="osint-url-message" role="status"></p>
+</form>
+<div aria-live="polite" class="osint-handoff" hidden="" id="osint-url-results">
+<div class="osint-result-meta"><span>Jua check: <strong>not performed</strong></span><span id="osint-url-time"></span></div>
+<p>Jua has not sent or scanned this URL. Select a service to open its official site. You may need to paste the URL there. Google Safe Browsing opens its site-status search with this URL.</p>
+<div class="osint-actions"><a class="osint-provider-link" href="https://transparencyreport.google.com/safe-browsing/search" id="osint-google-link" rel="noopener noreferrer" target="_blank">Google Safe Browsing ↗</a><a class="osint-provider-link" href="https://www.virustotal.com/gui/home/url" rel="noopener noreferrer" target="_blank">VirusTotal ↗</a><a class="osint-provider-link" href="https://urlscan.io/" rel="noopener noreferrer" target="_blank">urlscan.io ↗</a><button class="button-secondary osint-copy" id="osint-copy-url" type="button">Copy URL</button></div>
+<p class="osint-result-caveat">VirusTotal and urlscan checks are not run by Jua. If you choose to submit to urlscan, select the visibility level carefully; public scans may expose the URL and scan contents.</p>
+</div>
+</article>
+<article class="osint-card">
+<div class="osint-card-heading"><span aria-hidden="true" class="osint-icon">@</span><div><p class="osint-kicker">Breach exposure</p><h3>Check an email address</h3></div><span class="osint-status osint-status--external">Provider handoff</span></div>
+<p class="osint-description">Use Have I Been Pwned’s own search page. Jua does not send or store the address, and never puts it into a link.</p>
+<form class="osint-form" id="osint-email-form" novalidate="">
+<label class="field-label" for="osint-email">Email address</label>
+<input autocomplete="email" id="osint-email" placeholder="name@example.com" required="" type="email"/>
+<label class="osint-consent"><input id="osint-email-consent" required="" type="checkbox"/><span>I understand Have I Been Pwned will receive the address if I enter it there. I have permission to check it.</span></label>
+<button class="button-secondary" type="submit">Prepare HIBP check ↗</button>
+<p aria-live="polite" class="osint-message" id="osint-email-message" role="status"></p>
+</form>
+<div aria-live="polite" class="osint-handoff" hidden="" id="osint-email-results">
+<div class="osint-result-meta"><span>Jua check: <strong>not performed</strong></span><span id="osint-email-time"></span></div>
+<p>Open HIBP and enter the address on its site. The email was not transmitted by Jua.</p>
+<a class="osint-provider-link" href="https://haveibeenpwned.com/" rel="noopener noreferrer" target="_blank">Open Have I Been Pwned ↗</a>
+<p class="osint-result-caveat">HIBP’s programmatic email API requires an API key. No HIBP API integration is configured on this site.</p>
+</div>
+</article>
+<article class="osint-card osint-card--wide">
+<div class="osint-card-heading"><span aria-hidden="true" class="osint-icon">⌘</span><div><p class="osint-kicker">Domain intelligence</p><h3>DNS records</h3></div><span class="osint-status osint-status--working">Live lookup</span></div>
+<p class="osint-description">Query common public DNS records through Cloudflare’s DNS-over-HTTPS resolver. This is DNS data only; it does not test the website or connect to the target host.</p>
+<form class="osint-form" id="osint-dns-form" novalidate="">
+<label class="field-label" for="osint-domain">Public domain name</label>
+<div class="osint-input-row"><input aria-describedby="osint-dns-hint" autocomplete="off" id="osint-domain" inputmode="url" placeholder="example.com" required="" type="text"/><button class="button-primary" type="submit">Look up DNS</button></div>
+<p class="osint-hint" id="osint-dns-hint">Only a public domain name is accepted. The domain will be sent to Cloudflare to answer DNS queries; no API key is used.</p>
+<label class="osint-consent"><input id="osint-dns-consent" required="" type="checkbox"/><span>I agree to send this domain to Cloudflare DNS for these public record lookups.</span></label>
+<p aria-live="polite" class="osint-message" id="osint-dns-message" role="status"></p>
+</form>
+<div aria-live="polite" class="osint-dns-results" hidden="" id="osint-dns-results"></div>
+<div class="osint-external-details"><span>Registration &amp; certificate research</span><p>These provider lookups are external to Jua and may log your query.</p><div class="osint-actions"><a href="https://lookup.icann.org/en" id="osint-rdap-link" rel="noopener noreferrer" target="_blank">ICANN domain lookup ↗</a><a href="https://crt.sh/" id="osint-cert-link" rel="noopener noreferrer" target="_blank">Certificate Transparency search ↗</a></div><p class="osint-result-caveat">Registration data may be redacted or incomplete. Certificate history does not prove that a site is trustworthy.</p></div>
+</article>
+<article class="osint-card osint-learning">
+<div class="osint-card-heading"><span aria-hidden="true" class="osint-icon">i</span><div><p class="osint-kicker">Learn &amp; interpret</p><h3>What OSINT can tell you</h3></div></div>
+<p>Open-source intelligence uses information available from public sources. It can add context, but it rarely proves who controls a site or whether a message is genuine.</p>
+<ul><li><strong>Check the source and time.</strong> Public databases can lag or disagree.</li><li><strong>“No detection” is not a guarantee.</strong> New, targeted, or unreported threats may not appear.</li><li><strong>Confirm through a separate trusted route.</strong> Use a known official app or contact channel.</li><li><strong>Respect privacy and permission.</strong> Do not investigate private accounts or expose other people’s data.</li></ul>
+<p class="osint-source-list">Sources: <a href="https://docs.virustotal.com/docs/api-overview" rel="noopener noreferrer" target="_blank">VirusTotal API guidance</a> · <a href="https://docs.urlscan.io/pages/visibility" rel="noopener noreferrer" target="_blank">urlscan visibility</a> · <a href="https://haveibeenpwned.com/API/V3" rel="noopener noreferrer" target="_blank">HIBP API documentation</a> · <a href="https://developers.cloudflare.com/1.1.1.1/encryption/dns-over-https/make-api-requests/" rel="noopener noreferrer" target="_blank">Cloudflare DNS docs</a></p>
+</article>
+</div>
+<p class="osint-footer-note">Results shown here are informational, not a safety verdict. When a lookup is performed by an external provider, its own page is the source of record.</p>
+</div>
+</section></main></body></html>

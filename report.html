@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="#0B0B0D" name="theme-color"/><meta content="Jua helps you recognise online scams, check suspicious messages, learn safer habits and find practical next steps." name="description"/><link href="data:," rel="icon"/><link href="style.css" rel="stylesheet"/><script defer="" src="shared-shell.js"></script><title>Jua | Report a Scam</title><script defer="" src="supabase-config.js"></script><script defer="" src="auth.js"></script><script defer="" src="report.js"></script></head><body><main class="page-content"><section aria-labelledby="report-title" class="tool-section tool-section--charcoal dashboard-section--charcoal" id="report">
+<div class="wrap report-layout">
+<div>
+<span class="prototype-label">Community awareness · moderation required</span>
+<p class="eyebrow report-eyebrow">Scam reporting &amp; awareness</p>
+<h2 class="section-title" id="report-title">Help others stay alert.</h2>
+<p class="report-warning">When configured, reports are stored privately for awareness and review. They are not published publicly. Do not include passwords, PINs, verification codes, account numbers, or unnecessary personal information.</p>
+</div>
+<form class="report-form" id="report-form" novalidate="">
+<p class="field-hint">Do not submit passwords, PINs, verification codes, account numbers, full names, or unnecessary personal information. This public form has basic validation but no reliable rate limit; spam may be submitted.</p>
+<label class="field-label" for="report-type">Type of suspected scam</label>
+<select id="report-type" required=""><option value="">Choose a type</option><option value="mobile_money">Mobile money</option><option value="phishing">Phishing message</option><option value="fake_job">Fake job or advance fee</option><option value="online_shop">Online shop or marketplace</option><option value="investment_impersonation">Investment or impersonation</option><option value="other">Other</option></select>
+<label class="field-label" for="report-description">What happened? (remove identifying details)</label>
+<textarea aria-describedby="report-description-hint" id="report-description" maxlength="1200" minlength="20" required=""></textarea>
+<p class="field-hint" id="report-description-hint">20 to 1,200 characters. Describe the pattern without identifying people.</p>
+<label class="field-label" for="report-details">Optional context</label>
+<textarea class="report-details" id="report-details" maxlength="600"></textarea>
+<button class="button-primary" type="submit">Submit report</button>
+<p aria-live="polite" class="report-message" id="report-message" role="status"></p>
+</form>
+</div>
+</section><section aria-labelledby="account-title" class="tool-section tool-section--ivory" id="account">
+<div class="wrap">
+<div class="tool-heading">
+<p class="eyebrow">Your Jua account</p>
+<h2 class="section-title" id="account-title">A safer place for your own records.</h2>
+<p class="section-copy">An account is optional. The checker, quiz, library, help guidance, and OSINT tools remain available to visitors.</p>
+</div>
+<p aria-live="polite" class="account-message" id="account-message" role="status">Checking account setup…</p>
+<div class="account-auth-grid" hidden="" id="account-auth-forms">
+<form class="account-card" id="auth-sign-in-form">
+<h3>Log in</h3>
+<label class="field-label" for="auth-sign-in-email">Email</label>
+<input autocomplete="email" id="auth-sign-in-email" required="" type="email"/>
+<label class="field-label" for="auth-sign-in-password">Password</label>
+<input autocomplete="current-password" id="auth-sign-in-password" required="" type="password"/>
+<button class="button-primary" type="submit">Log in</button>
+<p aria-live="polite" class="account-form-message" id="auth-sign-in-message" role="status"></p>
+</form>
+<form class="account-card" id="auth-sign-up-form">
+<h3>Create an account</h3>
+<label class="field-label" for="auth-sign-up-name">Display name <span>(optional)</span></label>
+<input autocomplete="name" id="auth-sign-up-name" maxlength="80" type="text"/>
+<label class="field-label" for="auth-sign-up-email">Email</label>
+<input autocomplete="email" id="auth-sign-up-email" required="" type="email"/>
+<label class="field-label" for="auth-sign-up-password">Password</label>
+<input autocomplete="new-password" id="auth-sign-up-password" minlength="8" required="" type="password"/>
+<p class="field-hint">Use at least 8 characters. Supabase manages your password and sign-in session.</p>
+<button class="button-primary" type="submit">Create account</button>
+<p aria-live="polite" class="account-form-message" id="auth-sign-up-message" role="status"></p>
+</form>
+<form class="account-card account-card--compact" id="auth-reset-form">
+<h3>Reset a forgotten password</h3>
+<label class="field-label" for="auth-reset-email">Account email</label>
+<input autocomplete="email" id="auth-reset-email" required="" type="email"/>
+<button class="button-secondary" type="submit">Send reset link</button>
+<p aria-live="polite" class="account-form-message" id="auth-reset-message" role="status"></p>
+</form>
+</div>
+<div class="account-dashboard" hidden="" id="account-dashboard">
+<article class="account-card account-card--identity">
+<div><p class="account-kicker">Signed in as</p><h3 id="account-email"></h3></div>
+<p class="account-verification" id="account-verification"></p>
+<button class="button-secondary" id="auth-sign-out" type="button">Log out</button>
+</article>
+<div class="account-auth-grid">
+<form class="account-card" id="profile-form">
+<h3>Your profile</h3>
+<label class="field-label" for="profile-display-name">Display name</label>
+<input autocomplete="name" id="profile-display-name" maxlength="80" type="text"/>
+<button class="button-primary" type="submit">Save profile</button>
+<p aria-live="polite" class="account-form-message" id="profile-message" role="status"></p>
+</form>
+<form class="account-card" hidden="" id="auth-update-password-form">
+<h3>Choose a new password</h3>
+<label class="field-label" for="auth-new-password">New password</label>
+<input autocomplete="new-password" id="auth-new-password" minlength="8" required="" type="password"/>
+<button class="button-primary" type="submit">Update password</button>
+<p aria-live="polite" class="account-form-message" id="auth-update-password-message" role="status"></p>
+</form>
+</div>
+<section aria-labelledby="my-reports-title" class="account-card">
+<h3 id="my-reports-title">Your reports</h3>
+<p class="account-muted">Only reports linked to your signed-in account appear here. Anonymous reports cannot be claimed later.</p>
+<div aria-live="polite" class="my-reports-list" id="my-reports-list"></div>
+</section>
+<section aria-labelledby="account-role-title" class="account-card account-role-card" hidden="" id="account-role-area">
+<h3 id="account-role-title">Role-specific workspace</h3>
+<p class="account-muted" id="account-role-summary"></p>
+<div id="role-placeholder-list"></div>
+<div hidden="" id="moderator-workspace">
+<h4>Report review queue</h4>
+<p class="account-muted">Changing a report status is recorded in the review history. Reports are never published automatically.</p>
+<div class="my-reports-list" id="moderator-report-list"></div>
+<p aria-live="polite" class="account-form-message" id="moderator-message" role="status"></p>
+</div>
+</section>
+</div>
+</div>
+</section></main></body></html>

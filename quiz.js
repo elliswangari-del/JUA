@@ -53,6 +53,7 @@
   }
 
   function updateProgressCount() {
+    if (!progressCount) return;
     var count = readCompletionCount();
     if (count === null) {
       progressCount.textContent = "—";

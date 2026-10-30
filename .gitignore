@@ -1,0 +1,14 @@
+
+# Environment variables and secrets
+.env
+.env.*
+!.env.example
+
+# Dependencies
+node_modules/
+
+# Local Supabase files
+supabase/.temp/
+
+# Operating system files
+.DS_Store

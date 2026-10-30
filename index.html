@@ -1,310 +1,54 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#0B0B0D">
-  <meta name="description" content="Jua helps you recognise online scams, check suspicious messages, learn safer habits and find practical next steps.">
-  <title>Jua | Your Digital Safety Hub</title>
-  <link rel="stylesheet" href="css/style.css">
-  <script defer src="js/main.js"></script>
-  <script defer src="js/checker.js"></script>
-  <script defer src="js/quiz.js"></script>
-  <script defer src="js/library.js"></script>
-  <script defer src="js/osint.js"></script>
-</head>
-<body>
-  <header class="site-header">
-    <nav class="site-nav" aria-label="Main navigation">
-      <a class="brand" href="#dashboard" aria-label="Jua dashboard"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4 29 8.5v8.2c0 7.8-4.6 12.8-11 15.5-6.4-2.7-11-7.7-11-15.5V8.5L18 4Z" stroke="currentColor" stroke-width="1.15"/><path d="M18 11v14M11 18h14M13 13l10 10M23 13 13 23" stroke="currentColor" stroke-width=".8" stroke-linecap="round" opacity=".8"/><circle cx="18" cy="18" r="2.3" fill="currentColor"/></svg></span><span class="brand-name">Jua</span></a>
-      <div class="nav-links" id="primary-links">
-        <a href="#dashboard">Home</a>
-        <a href="#checker">Message checker</a>
-        <a href="#quiz">Quiz</a>
-        <a href="#library">Learn</a>
-        <a href="#osint">OSINT</a>
-        <a href="#help">Get help</a>
-        <button class="nav-cta" type="button" data-open-assistant>Open assistant <span aria-hidden="true">↗</span></button>
-      </div>
-      <button class="mobile-menu-toggle" id="mobile-menu-toggle" type="button" aria-label="Open navigation menu" aria-controls="primary-links" aria-expanded="false"><span aria-hidden="true"></span><span aria-hidden="true"></span></button>
-    </nav>
-  </header>
-
-  <main id="dashboard-view">
-    <section class="dashboard-hero" id="dashboard" aria-labelledby="welcome-title">
-      <div class="wrap hero-layout">
-        <div class="reveal">
-          <p class="eyebrow">Jua · Gilded Intelligence</p>
-          <h1 class="display-title" id="welcome-title">Your digital safety <em>hub.</em></h1>
-          <p class="hero-copy">Make a calmer, more informed choice when something online feels off. Check a message, practise spotting warning signs, or find practical next steps.</p>
-          <div class="hero-actions">
-            <a class="button-primary" href="#checker">Check a suspicious message <span aria-hidden="true">↘</span></a>
-            <a class="button-secondary" href="#library">Explore the library</a>
-          </div>
-          <div class="progress-strip" aria-live="polite">
-            <span class="progress-mark" aria-hidden="true">✓</span>
-            <span><strong id="quiz-completions">0</strong> quiz rounds completed on this browser <span class="progress-note">(local to this browser; not an account)</span></span>
-          </div>
-        </div>
-        <div class="hero-visual reveal" role="img" aria-label="A gold verification shield surrounded by digital signal rings">
-          <span class="orbit-dot orbit-dot-a" aria-hidden="true"></span><span class="orbit-dot orbit-dot-b" aria-hidden="true"></span>
-          <span class="visual-tag visual-tag-top">Pause · Think</span>
-          <svg class="hero-shield" viewBox="0 0 220 260" fill="none" aria-hidden="true">
-            <path d="M110 10 198 44v68c0 62-37 109-88 139-51-30-88-77-88-139V44l88-34Z" fill="url(#goldShield)" stroke="#D6B56D" stroke-width="1.5"/>
-            <path d="M110 28 182 56v56c0 51-28 90-72 118-44-28-72-67-72-118V56l72-28Z" stroke="#D6B56D" stroke-opacity=".38"/>
-            <circle cx="110" cy="120" r="43" fill="#111113" stroke="#D6B56D" stroke-opacity=".6"/>
-            <path d="m92 120 12 12 25-27" stroke="#F3E5BD" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"/>
-            <defs><linearGradient id="goldShield" x1="22" y1="10" x2="198" y2="251"><stop stop-color="#D6B56D" stop-opacity=".2"/><stop offset="1" stop-color="#B88A32" stop-opacity=".025"/></linearGradient></defs>
-          </svg>
-          <span class="visual-tag visual-tag-bottom">Verify before you act</span>
-        </div>
-      </div>
-    </section>
-
-    <section class="dashboard-section dashboard-section--charcoal" aria-labelledby="tools-title">
-      <div class="wrap">
-        <div class="section-heading">
-          <div><p class="eyebrow">Tools for everyday decisions</p><h2 class="section-title" id="tools-title">Choose your next step.</h2></div>
-          <p>Start with the tool that fits what you need right now. Jua’s guidance is educational and designed to help you verify independently.</p>
-        </div>
-        <article class="assistant-feature reveal">
-          <div>
-            <p class="eyebrow">Ask Jua</p>
-            <h3>AI Cyber Safety Assistant</h3>
-            <p>Talk through a suspicious message, an online offer, or a question about safer digital habits with Jua’s existing AI assistant.</p>
-            <button class="button-primary" type="button" data-open-assistant>Open Assistant <span aria-hidden="true">↗</span></button>
-          </div>
-          <div class="assistant-seal" aria-hidden="true"><svg viewBox="0 0 64 64" fill="none"><path d="M32 5 54 14v15c0 15-9 26-22 32C19 55 10 44 10 29V14L32 5Z" stroke="currentColor" stroke-width="1.5"/><path d="M21 31h22M21 38h15" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/><path d="M24 25h16" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/></svg></div>
-        </article>
-        <div class="tool-grid tool-grid-spaced">
-          <a class="tool-card" href="#checker"><div class="tool-index"><span>01 / REVIEW</span><span aria-hidden="true">↘</span></div><h3>Message checker</h3><p>Look for common pressure tactics and requests for sensitive details.</p></a>
-          <a class="tool-card" href="#quiz"><div class="tool-index"><span>02 / PRACTISE</span><span aria-hidden="true">↘</span></div><h3>Awareness quiz</h3><p>Work through short, illustrative scenarios based on everyday digital life.</p></a>
-          <a class="tool-card" href="#library"><div class="tool-index"><span>03 / LEARN</span><span aria-hidden="true">↘</span></div><h3>Scam library</h3><p>Browse straightforward explanations and prevention steps.</p></a>
-          <a class="tool-card" href="#help"><div class="tool-index"><span>04 / RESPOND</span><span aria-hidden="true">↘</span></div><h3>Get help</h3><p>Find calm first steps if money, an account, or personal details are at risk.</p></a>
-          <a class="tool-card" href="#report"><div class="tool-index"><span>05 / AWARENESS</span><span aria-hidden="true">↘</span></div><h3>Share a report</h3><p>Preview a report form; submissions are not sent or stored.</p></a>
-          <a class="tool-card" href="#osint"><div class="tool-index"><span>06 / INVESTIGATE</span><span aria-hidden="true">↘</span></div><h3>OSINT Investigation Centre</h3><p>Use public sources to check domains, links, and known breach exposure.</p></a>
-        </div>
-      </div>
-    </section>
-
-    <section class="tool-section tool-section--dark osint-section" id="osint" aria-labelledby="osint-title">
-      <div class="wrap">
-        <div class="tool-heading">
-          <p class="eyebrow">Open-source intelligence · OSINT</p>
-          <h2 class="section-title" id="osint-title">OSINT Investigation Centre.</h2>
-          <p class="section-copy">Check public signals using established services. Every result has limits; a clean finding is not proof that a site or account is safe.</p>
-        </div>
-
-        <aside class="osint-privacy" aria-label="Privacy notice">
-          <span class="osint-privacy-icon" aria-hidden="true">!</span>
-          <p><strong>Pause before sharing.</strong> External services receive information you submit. urlscan scans may be publicly visible depending on the visibility setting you select there. Jua does not send a URL or email to reputation services automatically. Never submit private, confidential, or someone else’s personal information without permission.</p>
-        </aside>
-
-        <div class="osint-grid">
-          <article class="osint-card osint-card--wide">
-            <div class="osint-card-heading"><span class="osint-icon" aria-hidden="true">↗</span><div><p class="osint-kicker">Link & website reputation</p><h3>Check a suspicious URL</h3></div><span class="osint-status osint-status--external">External checks</span></div>
-            <p class="osint-description">Jua validates the format only. Choose a service below to continue on its site; the provider performs the check and applies its own data handling rules.</p>
-            <form id="osint-url-form" class="osint-form" novalidate>
-              <label class="field-label" for="osint-url">Website URL</label>
-              <div class="osint-input-row"><input id="osint-url" type="url" inputmode="url" placeholder="https://example.com" autocomplete="url" aria-describedby="osint-url-hint" required><button class="button-primary" type="submit">Prepare check</button></div>
-              <p class="osint-hint" id="osint-url-hint">Use a public website address. Private network addresses, localhost, and local domains are not accepted.</p>
-              <label class="osint-consent"><input id="osint-url-consent" type="checkbox" required><span>I understand that the provider I choose will receive the URL. urlscan submissions can be visible to others; I will review its visibility options before submitting.</span></label>
-              <p class="osint-message" id="osint-url-message" role="status" aria-live="polite"></p>
-            </form>
-            <div id="osint-url-results" class="osint-handoff" hidden aria-live="polite">
-              <div class="osint-result-meta"><span>Jua check: <strong>not performed</strong></span><span id="osint-url-time"></span></div>
-              <p>Jua has not sent or scanned this URL. Select a service to open its official site. You may need to paste the URL there. Google Safe Browsing opens its site-status search with this URL.</p>
-              <div class="osint-actions"><a class="osint-provider-link" id="osint-google-link" href="https://transparencyreport.google.com/safe-browsing/search" target="_blank" rel="noopener noreferrer">Google Safe Browsing ↗</a><a class="osint-provider-link" href="https://www.virustotal.com/gui/home/url" target="_blank" rel="noopener noreferrer">VirusTotal ↗</a><a class="osint-provider-link" href="https://urlscan.io/" target="_blank" rel="noopener noreferrer">urlscan.io ↗</a><button class="button-secondary osint-copy" id="osint-copy-url" type="button">Copy URL</button></div>
-              <p class="osint-result-caveat">VirusTotal and urlscan checks are not run by Jua. If you choose to submit to urlscan, select the visibility level carefully; public scans may expose the URL and scan contents.</p>
-            </div>
-          </article>
-
-          <article class="osint-card">
-            <div class="osint-card-heading"><span class="osint-icon" aria-hidden="true">@</span><div><p class="osint-kicker">Breach exposure</p><h3>Check an email address</h3></div><span class="osint-status osint-status--external">Provider handoff</span></div>
-            <p class="osint-description">Use Have I Been Pwned’s own search page. Jua does not send or store the address, and never puts it into a link.</p>
-            <form id="osint-email-form" class="osint-form" novalidate>
-              <label class="field-label" for="osint-email">Email address</label>
-              <input id="osint-email" type="email" autocomplete="email" placeholder="name@example.com" required>
-              <label class="osint-consent"><input id="osint-email-consent" type="checkbox" required><span>I understand Have I Been Pwned will receive the address if I enter it there. I have permission to check it.</span></label>
-              <button class="button-secondary" type="submit">Prepare HIBP check ↗</button>
-              <p class="osint-message" id="osint-email-message" role="status" aria-live="polite"></p>
-            </form>
-            <div id="osint-email-results" class="osint-handoff" hidden aria-live="polite">
-              <div class="osint-result-meta"><span>Jua check: <strong>not performed</strong></span><span id="osint-email-time"></span></div>
-              <p>Open HIBP and enter the address on its site. The email was not transmitted by Jua.</p>
-              <a class="osint-provider-link" href="https://haveibeenpwned.com/" target="_blank" rel="noopener noreferrer">Open Have I Been Pwned ↗</a>
-              <p class="osint-result-caveat">HIBP’s programmatic email API requires an API key. No HIBP API integration is configured on this site.</p>
-            </div>
-          </article>
-
-          <article class="osint-card osint-card--wide">
-            <div class="osint-card-heading"><span class="osint-icon" aria-hidden="true">⌘</span><div><p class="osint-kicker">Domain intelligence</p><h3>DNS records</h3></div><span class="osint-status osint-status--working">Live lookup</span></div>
-            <p class="osint-description">Query common public DNS records through Cloudflare’s DNS-over-HTTPS resolver. This is DNS data only; it does not test the website or connect to the target host.</p>
-            <form id="osint-dns-form" class="osint-form" novalidate>
-              <label class="field-label" for="osint-domain">Public domain name</label>
-              <div class="osint-input-row"><input id="osint-domain" type="text" inputmode="url" placeholder="example.com" autocomplete="off" aria-describedby="osint-dns-hint" required><button class="button-primary" type="submit">Look up DNS</button></div>
-              <p class="osint-hint" id="osint-dns-hint">Only a public domain name is accepted. The domain will be sent to Cloudflare to answer DNS queries; no API key is used.</p>
-              <label class="osint-consent"><input id="osint-dns-consent" type="checkbox" required><span>I agree to send this domain to Cloudflare DNS for these public record lookups.</span></label>
-              <p class="osint-message" id="osint-dns-message" role="status" aria-live="polite"></p>
-            </form>
-            <div id="osint-dns-results" class="osint-dns-results" hidden aria-live="polite"></div>
-            <div class="osint-external-details"><span>Registration & certificate research</span><p>These provider lookups are external to Jua and may log your query.</p><div class="osint-actions"><a id="osint-rdap-link" href="https://lookup.icann.org/en" target="_blank" rel="noopener noreferrer">ICANN domain lookup ↗</a><a id="osint-cert-link" href="https://crt.sh/" target="_blank" rel="noopener noreferrer">Certificate Transparency search ↗</a></div><p class="osint-result-caveat">Registration data may be redacted or incomplete. Certificate history does not prove that a site is trustworthy.</p></div>
-          </article>
-
-          <article class="osint-card osint-learning">
-            <div class="osint-card-heading"><span class="osint-icon" aria-hidden="true">i</span><div><p class="osint-kicker">Learn & interpret</p><h3>What OSINT can tell you</h3></div></div>
-            <p>Open-source intelligence uses information available from public sources. It can add context, but it rarely proves who controls a site or whether a message is genuine.</p>
-            <ul><li><strong>Check the source and time.</strong> Public databases can lag or disagree.</li><li><strong>“No detection” is not a guarantee.</strong> New, targeted, or unreported threats may not appear.</li><li><strong>Confirm through a separate trusted route.</strong> Use a known official app or contact channel.</li><li><strong>Respect privacy and permission.</strong> Do not investigate private accounts or expose other people’s data.</li></ul>
-            <p class="osint-source-list">Sources: <a href="https://docs.virustotal.com/docs/api-overview" target="_blank" rel="noopener noreferrer">VirusTotal API guidance</a> · <a href="https://docs.urlscan.io/pages/visibility" target="_blank" rel="noopener noreferrer">urlscan visibility</a> · <a href="https://haveibeenpwned.com/API/V3" target="_blank" rel="noopener noreferrer">HIBP API documentation</a> · <a href="https://developers.cloudflare.com/1.1.1.1/encryption/dns-over-https/make-api-requests/" target="_blank" rel="noopener noreferrer">Cloudflare DNS docs</a></p>
-          </article>
-        </div>
-        <p class="osint-footer-note">Results shown here are informational, not a safety verdict. When a lookup is performed by an external provider, its own page is the source of record.</p>
-      </div>
-    </section>
-
-    <section class="tool-section tool-section--ivory" id="checker" aria-labelledby="checker-title">
-      <div class="wrap">
-        <div class="checker-layout">
-          <div class="tool-heading">
-            <p class="eyebrow">Scam message checker</p>
-            <h2 class="section-title" id="checker-title">Notice the warning signs.</h2>
-            <p class="section-copy">Paste a suspicious SMS, email, WhatsApp message, or online offer to review common scam signals.</p>
-            <div class="checker-note space-top">
-              <h3>Keep your details private</h3>
-              <p>Remove names, phone numbers, account details, passwords, PINs, one-time codes, and other personal information before checking. Your text is analysed in this page and is not saved.</p>
-            </div>
-          </div>
-          <form class="checker-form" id="checker-form">
-            <label class="field-label" for="message-text">Message or offer</label>
-            <textarea id="message-text" maxlength="5000" placeholder="Paste the message here after removing personal details…" aria-describedby="checker-hint"></textarea>
-            <p class="field-hint" id="checker-hint">This is a transparent, rule-based demo. It does not use AI or verify senders and links.</p>
-            <button class="button-primary" type="submit">Analyse warning signs</button>
-            <div class="checker-result" id="checker-result" role="status" aria-live="polite" hidden></div>
-          </form>
-        </div>
-      </div>
-    </section>
-
-    <section class="tool-section tool-section--dark" id="quiz" aria-labelledby="quiz-title">
-      <div class="wrap">
-        <div class="tool-heading">
-          <p class="eyebrow">Scam awareness quiz</p>
-          <h2 class="section-title" id="quiz-title">Practise before it matters.</h2>
-          <p class="section-copy">Try five short scenarios about mobile money, online shopping, account security, and job offers.</p>
-        </div>
-        <div class="quiz-shell" id="quiz-shell">
-          <div class="quiz-meta"><span id="quiz-step">Question 1 of 5</span><span id="quiz-score-live">Score: 0</span></div>
-          <div class="quiz-progress-track" aria-hidden="true"><div class="quiz-progress-bar" id="quiz-progress-bar"></div></div>
-          <div id="quiz-stage" aria-live="polite"></div>
-        </div>
-        <p class="scenario-note">These are illustrative learning scenarios, not reports of specific incidents or legal advice. Jua does not issue certificates or awards.</p>
-      </div>
-    </section>
-
-    <section class="tool-section tool-section--ivory" id="library" aria-labelledby="library-title">
-      <div class="wrap">
-        <div class="tool-heading">
-          <p class="eyebrow">Scam awareness library</p>
-          <h2 class="section-title" id="library-title">A little knowledge goes a long way.</h2>
-          <p class="section-copy">Search practical, beginner-friendly notes about common scam patterns and account protection.</p>
-        </div>
-        <div class="library-controls">
-          <label><span class="field-label">Search topics</span><input id="library-search" type="search" placeholder="Try “PIN”, “job”, or “link”" autocomplete="off"></label>
-          <label><span class="field-label">Filter by topic</span><select id="library-category"><option value="all">All topics</option><option value="mobile-money">M-Pesa & mobile money</option><option value="phishing">Phishing & links</option><option value="jobs">Jobs & advance fees</option><option value="marketplace">Online shops & marketplaces</option><option value="investment">Investment & impersonation</option><option value="accounts">Passwords & account safety</option></select></label>
-        </div>
-        <p id="library-count" class="field-hint" aria-live="polite"></p>
-        <div class="library-grid" id="library-grid">
-          <article class="library-entry" data-category="mobile-money"><span class="library-category">M-Pesa & mobile money</span><h3>Fake reversals and payment claims</h3><p>Do not send money back because of a caller’s instructions or a screenshot. Check your own account balance and transaction history, then contact the provider through its official app or website if something is unclear.</p></article>
-          <article class="library-entry" data-category="phishing"><span class="library-category">Phishing & suspicious links</span><h3>Unexpected links and account alerts</h3><p>A message may copy a real organisation’s name while sending you to a lookalike page. Open the official app or type a known website address yourself instead of following an unexpected link.</p></article>
-          <article class="library-entry" data-category="jobs"><span class="library-category">Jobs & advance fees</span><h3>Pay-first job offers</h3><p>Be cautious when a job offer demands a registration, training, processing, or placement fee before work begins. Verify the organisation and vacancy using contact details you find independently.</p></article>
-          <article class="library-entry" data-category="marketplace"><span class="library-category">Online shops & marketplaces</span><h3>Pressure to pay outside a platform</h3><p>Compare the seller’s details, return terms, and independent reviews. Avoid rushed transfers to personal accounts when the marketplace offers safer payment protections.</p></article>
-          <article class="library-entry" data-category="investment"><span class="library-category">Investment & impersonation</span><h3>Guaranteed returns and trusted names</h3><p>Promises of certain, unusually high returns and pressure to recruit friends deserve careful checking. Confirm a firm or person through the relevant regulator’s official directory before sending funds.</p></article>
-          <article class="library-entry" data-category="accounts"><span class="library-category">Passwords & account safety</span><h3>Protect sign-in and recovery details</h3><p>Use a unique password for each important account and turn on multi-factor authentication where available. Never share a PIN, password, or one-time code with a caller or message sender.</p></article>
-        </div>
-        <p class="library-empty" id="library-empty" hidden>No topics match that search. Try another word or choose “All topics”.</p>
-      </div>
-    </section>
-
-    <section class="tool-section tool-section--dark" id="help" aria-labelledby="help-title">
-      <div class="wrap">
-        <div class="tool-heading">
-          <p class="eyebrow">I’ve been scammed</p>
-          <h2 class="section-title" id="help-title">Start with the next safe step.</h2>
-          <p class="section-copy">Act quickly through official channels. Save evidence, and do not pay anyone who promises guaranteed recovery.</p>
-        </div>
-        <div class="help-grid">
-          <details class="help-item"><summary>Money sent or a suspicious payment</summary><div class="help-copy"><p>Contact your bank, mobile-money provider, or payment service using its official app, website, or a number printed on your card. Ask them to secure the account and review the transaction. Keep the transaction reference and messages. Recovery is not guaranteed.</p></div></details>
-          <details class="help-item"><summary>PIN, password, or one-time code disclosed</summary><div class="help-copy"><p>From a trusted device, change the affected password or PIN through the official app or website. Change any reused password, sign out other sessions where available, enable multi-factor authentication, and contact the provider if you cannot access the account.</p></div></details>
-          <details class="help-item"><summary>Clicked a suspicious link</summary><div class="help-copy"><p>If you only opened it, close the page and do not enter details or install anything. If you entered a password or code, change it through the official service and review active sessions. If you installed a file, avoid signing in on that device until you have checked it with trusted security software or support.</p></div></details>
-          <details class="help-item"><summary>Email or social account taken over</summary><div class="help-copy"><p>Use the service’s official account-recovery process from a trusted device. Secure the linked email and phone number, revoke unfamiliar sessions or connected apps, and tell contacts to ignore unexpected payment requests from the account.</p></div></details>
-          <details class="help-item"><summary>Identity details may be misused</summary><div class="help-copy"><p>Write down what was shared and when. Contact affected banks or services through official channels, secure accounts that use those details, and preserve messages and transaction records. Ask the relevant organisation what additional protections it can place on your account.</p></div></details>
-          <details class="help-item"><summary>Preserve evidence and report safely</summary><div class="help-copy"><p>Keep original messages, sender details, receipts, transaction references, and a short timeline. Do not edit originals or publish unverified accusations. For current reporting guidance, consult the official Kenyan agencies below.</p><div class="official-links"><a href="https://www.dci.go.ke/investigative-services" target="_blank" rel="noopener noreferrer">DCI cybercrime investigations ↗</a><a href="https://ca.go.ke/cyber-security" target="_blank" rel="noopener noreferrer">Communications Authority cyber security ↗</a><a href="https://www.safaricom.co.ke/fraud-awareness/m-pesa-fraud" target="_blank" rel="noopener noreferrer">Safaricom M-Pesa fraud guidance ↗</a></div></div></details>
-        </div>
-        <p class="scenario-note">This is general educational guidance, not a promise of recovery or a substitute for advice from your provider or the appropriate authority. Official processes can change; use the agencies’ current instructions.</p>
-      </div>
-    </section>
-
-    <section class="tool-section tool-section--charcoal dashboard-section--charcoal" id="report" aria-labelledby="report-title">
-      <div class="wrap report-layout">
-        <div>
-          <span class="prototype-label">Local prototype · no submission</span>
-          <p class="eyebrow report-eyebrow">Scam reporting & awareness</p>
-          <h2 class="section-title" id="report-title">Help others stay alert.</h2>
-          <p class="report-warning">This form is a front-end prototype only. It does not send, save, or publish reports. A secure backend and human moderation process are required before collecting real reports.</p>
-        </div>
-        <form class="report-form" id="report-form">
-          <p class="field-hint">Do not include passwords, PINs, verification codes, account numbers, full names, or other sensitive personal information.</p>
-          <label class="field-label" for="report-type">Type of suspected scam</label>
-          <select id="report-type" required><option value="">Choose a type</option><option>Mobile money</option><option>Phishing message</option><option>Fake job or advance fee</option><option>Online shop or marketplace</option><option>Investment or impersonation</option><option>Other</option></select>
-          <label class="field-label" for="report-description">What happened? (remove identifying details)</label>
-          <textarea id="report-description" maxlength="1200" required></textarea>
-          <label class="field-label" for="report-details">Optional context</label>
-          <textarea id="report-details" maxlength="600" class="report-details"></textarea>
-          <button class="button-primary" type="submit">Preview report</button>
-          <p class="report-message" id="report-message" role="status" aria-live="polite"></p>
-        </form>
-      </div>
-    </section>
-
-    <footer class="site-footer">
-      <div class="wrap footer-row">
-        <div><div class="footer-brand"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4 29 8.5v8.2c0 7.8-4.6 12.8-11 15.5-6.4-2.7-11-7.7-11-15.5V8.5L18 4Z" stroke="currentColor" stroke-width="1.15"/><path d="M18 11v14M11 18h14M13 13l10 10M23 13 13 23" stroke="currentColor" stroke-width=".8" stroke-linecap="round" opacity=".8"/><circle cx="18" cy="18" r="2.3" fill="currentColor"/></svg></span><span>Jua</span></div><p class="footer-copy">Making digital safety easier to understand.</p><p class="footer-copy footer-note">Jua provides educational information and may not identify every scam. Verify suspicious activity independently; this website does not replace professional financial, legal, or cybersecurity advice.</p></div>
-        <p class="footer-year">© <span id="year"></span> Jua</p>
-      </div>
-    </footer>
-  </main>
-
-  <main id="assistant-view" class="assistant-view" hidden aria-labelledby="assistant-page-title">
-    <div class="assistant-topbar">
-      <div class="assistant-brand">
-        <a class="brand" href="#dashboard" aria-label="Jua dashboard"><span class="brand-mark" aria-hidden="true"><svg viewBox="0 0 36 36" fill="none"><path d="M18 4 29 8.5v8.2c0 7.8-4.6 12.8-11 15.5-6.4-2.7-11-7.7-11-15.5V8.5L18 4Z" stroke="currentColor" stroke-width="1.15"/><path d="M18 11v14M11 18h14M13 13l10 10M23 13 13 23" stroke="currentColor" stroke-width=".8" stroke-linecap="round" opacity=".8"/><circle cx="18" cy="18" r="2.3" fill="currentColor"/></svg></span><span class="brand-name">Jua</span></a>
-        <div><h1 class="assistant-view-title" id="assistant-page-title">AI Cyber Safety Assistant</h1><p class="assistant-view-subtitle">Your private space to ask about suspicious messages and online safety.</p></div>
-      </div>
-      <button class="button-quiet" id="back-dashboard" type="button"><span aria-hidden="true">←</span> Back to dashboard</button>
-    </div>
-    <div class="assistant-content">
-      <div class="assistant-heading"><p class="eyebrow">Meet your assistant</p><p>Share a question or describe a suspicious situation without including passwords, PINs, or verification codes.</p></div>
-      <section class="assistant-shell" aria-label="Jua chatbot">
-        <div class="assistant-shell-top"><span class="assistant-live-dot" aria-hidden="true"></span><span>Jua · Cyber Scam Awareness Assistant</span></div>
-        <iframe
-          id="JotFormIFrame-01a120679e00700283ac7d599e4bfdd3fa4e"
-          title="Jua: Cyber Scam Awareness Assistant"
-          allow="geolocation; microphone; camera; fullscreen"
-          src="https://agent.jotform.com/01a120679e00700283ac7d599e4bfdd3fa4e?embedMode=iframe&amp;autofocus=0&amp;background=1&amp;shadow=0"
-          class="assistant-frame"
-          loading="eager"
-          scrolling="no"></iframe>
-      </section>
-    </div>
-  </main>
-
-  <!-- Jotform's official embed handler, initialized once for the single assistant iframe. -->
-  <script src="https://cdn.jotfor.ms/s/umd/e4e585f36ca/for-form-embed-handler.js"></script>
-  <script>
-    window.jotformEmbedHandler(
-      "iframe[id='JotFormIFrame-01a120679e00700283ac7d599e4bfdd3fa4e']",
-      "https://www.jotform.com"
-    );
-  </script>
-</body>
-</html>
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="#0B0B0D" name="theme-color"/><meta content="Jua helps you recognise online scams, check suspicious messages, learn safer habits and find practical next steps." name="description"/><link href="data:," rel="icon"/><link href="style.css" rel="stylesheet"/><script defer="" src="shared-shell.js"></script><title>Jua | Dashboard</title><script defer="" src="main.js"></script></head><body><main class="page-content"><section aria-labelledby="welcome-title" class="dashboard-hero" id="dashboard">
+<div class="wrap hero-layout">
+<div class="reveal">
+<p class="eyebrow">Jua · Gilded Intelligence</p>
+<h1 class="display-title" id="welcome-title">Your digital safety <em>hub.</em></h1>
+<p class="hero-copy">Make a calmer, more informed choice when something online feels off. Check a message, practise spotting warning signs, or find practical next steps.</p>
+<div class="hero-actions">
+<a class="button-primary" href="checker.html">Check a suspicious message <span aria-hidden="true">↘</span></a>
+<a class="button-secondary" href="learn.html">Explore the library</a>
+</div>
+<div aria-live="polite" class="progress-strip">
+<span aria-hidden="true" class="progress-mark">✓</span>
+<span><strong id="quiz-completions">0</strong> quiz rounds completed on this browser <span class="progress-note">(local to this browser; not an account)</span></span>
+</div>
+</div>
+<div aria-label="A gold verification shield surrounded by digital signal rings" class="hero-visual reveal" role="img">
+<span aria-hidden="true" class="orbit-dot orbit-dot-a"></span><span aria-hidden="true" class="orbit-dot orbit-dot-b"></span>
+<span class="visual-tag visual-tag-top">Pause · Think</span>
+<svg aria-hidden="true" class="hero-shield" fill="none" viewbox="0 0 220 260">
+<path d="M110 10 198 44v68c0 62-37 109-88 139-51-30-88-77-88-139V44l88-34Z" fill="url(#goldShield)" stroke="#D6B56D" stroke-width="1.5"></path>
+<path d="M110 28 182 56v56c0 51-28 90-72 118-44-28-72-67-72-118V56l72-28Z" stroke="#D6B56D" stroke-opacity=".38"></path>
+<circle cx="110" cy="120" fill="#111113" r="43" stroke="#D6B56D" stroke-opacity=".6"></circle>
+<path d="m92 120 12 12 25-27" stroke="#F3E5BD" stroke-linecap="round" stroke-linejoin="round" stroke-width="4"></path>
+<defs><lineargradient id="goldShield" x1="22" x2="198" y1="10" y2="251"><stop stop-color="#D6B56D" stop-opacity=".2"></stop><stop offset="1" stop-color="#B88A32" stop-opacity=".025"></stop></lineargradient></defs>
+</svg>
+<span class="visual-tag visual-tag-bottom">Verify before you act</span>
+</div>
+</div>
+</section><section aria-labelledby="tools-title" class="dashboard-section dashboard-section--charcoal" id="dashboard-tools">
+<div class="wrap">
+<div class="section-heading">
+<div><p class="eyebrow">Tools for everyday decisions</p><h2 class="section-title" id="tools-title">Choose your next step.</h2></div>
+<p>Start with the tool that fits what you need right now. Jua’s guidance is educational and designed to help you verify independently.</p>
+</div>
+<article class="assistant-feature reveal">
+<div>
+<p class="eyebrow">Ask Jua</p>
+<h3>AI Cyber Safety Assistant</h3>
+<p>Talk through a suspicious message, an online offer, or a question about safer digital habits with Jua’s existing AI assistant.</p>
+<a class="button-primary" href="assistant.html">Open Assistant ↗</a>
+</div>
+<div aria-hidden="true" class="assistant-seal"><svg fill="none" viewbox="0 0 64 64"><path d="M32 5 54 14v15c0 15-9 26-22 32C19 55 10 44 10 29V14L32 5Z" stroke="currentColor" stroke-width="1.5"></path><path d="M21 31h22M21 38h15" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path><path d="M24 25h16" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"></path></svg></div>
+</article>
+<div class="tool-grid tool-grid-spaced">
+<a class="tool-card" href="checker.html"><div class="tool-index"><span>01 / REVIEW</span><span aria-hidden="true">↘</span></div><h3>Message checker</h3><p>Look for common pressure tactics and requests for sensitive details.</p></a>
+<a class="tool-card" href="quiz.html"><div class="tool-index"><span>02 / PRACTISE</span><span aria-hidden="true">↘</span></div><h3>Awareness quiz</h3><p>Work through short, illustrative scenarios based on everyday digital life.</p></a>
+<a class="tool-card" href="learn.html"><div class="tool-index"><span>03 / LEARN</span><span aria-hidden="true">↘</span></div><h3>Scam library</h3><p>Browse straightforward explanations and prevention steps.</p></a>
+<a class="tool-card" href="help.html"><div class="tool-index"><span>04 / RESPOND</span><span aria-hidden="true">↘</span></div><h3>Get help</h3><p>Find calm first steps if money, an account, or personal details are at risk.</p></a>
+<a class="tool-card" href="report.html"><div class="tool-index"><span>05 / AWARENESS</span><span aria-hidden="true">↘</span></div><h3>Share a report</h3><p>Submit a scam-awareness report for review.</p></a>
+<a class="tool-card" href="osint.html"><div class="tool-index"><span>06 / INVESTIGATE</span><span aria-hidden="true">↘</span></div><h3>OSINT Investigation Centre</h3><p>Use public sources to check domains, links, and known breach exposure.</p></a>
+</div>
+</div>
+</section></main></body></html>
